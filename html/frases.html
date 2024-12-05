@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Frases </title>
+</head>
+<body>
+    <div id="myApp">
+        
+        <ul>
+            <li v-for=" frase in  listaFrases">{{frase.frase}} - {{frase.autor}}
+
+                <button>{{frase.autor}}</button>
+                <p>{{frase.frase}}</p>
+
+            </li>
+        </ul>
+
+        <hr style="background-color: aqua;padding: 5px;">
+
+        <label for="idFrase">Frase:</label>
+        <input type="text" id="idFrase">
+        
+        <label for="idAutor">Autor:</label>
+        <input type="text" id="idAutor">
+        <button>Agregar</button>
+
+        <ul>
+            <!--DESESTROCTURO MI OBJETO-->
+            <li v-for=" {frase,autor} in  listaFrases">{{frase}} - {{autor}}
+
+                <button>{{autor}}</button>
+                <p>{{frase}}</p>
+
+            </li>
+        </ul>
+    </div>
+    
+    <script src="../js/appfrases.js"></script>
+</body>
+</html>

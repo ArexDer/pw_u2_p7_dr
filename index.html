@@ -4,19 +4,31 @@
     <meta charset="UTF-8">
    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>UNIDAD 2</title>
 </head>
 <body>
     <!--Incrustacion de VUE.js dentro de mi html-->
     <div id="myApp"><!--Este id va a representar mi aplicacion-->
+        <p>Hola Mundo</p>
+        <p>{{1+2}}</p>
+        <p>{{[1,2,3,4,5,6,7,8,9]}}</p>
+         <p>{{ {nombre: 'Diego',apellido:'Rivas'} }}</p>
+         <p>{{5<1? 'Activo':'Inactivo'}}</p>
+         <p>{{1===1? 'Activo':'Inactivo'}}</p>
+         <p>{{1===1}}</p>
+        <p>El mensaje es: {{mensaje}}</p><!--Con esto interpreta lo que tiene data en el js {{}}-->
+        <p>Mi edad: {{edad}}</p>
+        <p>Comparativa: {{edad===27}}</p>
 
-
+        <button v-on:click="cambiarMensaje">Cambiar Texto</button>
 
     </div>
+
+    {{1+2}}
     
     <!--CDN Lo hago referencia al contenido de VUE-->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+   
     <script src="./js/app.js"></script>
 </body>
 </html>
