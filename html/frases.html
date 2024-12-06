@@ -1,44 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+ 
 <head>
     <meta charset="UTF-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <title>Frases </title>
+ 
 </head>
+ 
 <body>
-    <div id="myApp">
-        
-        <ul>
-            <li v-for=" frase in  listaFrases">{{frase.frase}} - {{frase.autor}}
-
-                <button>{{frase.autor}}</button>
-                <p>{{frase.frase}}</p>
-
-            </li>
-        </ul>
-
-        <hr style="background-color: aqua;padding: 5px;">
-
+    <div id="myapp">
+        {{1+1}}
+        <hr>
+        {{listasFrases}}
+        <hr>
         <label for="idFrase">Frase:</label>
-        <input type="text" id="idFrase">
-        
+ 
+        <input v-model="frase" id="idFrase" type="text">
+        <p>{{frase}}</p>
+ 
         <label for="idAutor">Autor:</label>
-        <input type="text" id="idAutor">
-        <button>Agregar</button>
-
+       <!-- Comentado...
+        <input v-on:keypress="eventoKeyPress" v-model="autor" id="idAutor" type="text">
+        -->
+        <!--Con modificador de evento-->
+        <input v-on:keypress.enter="eventoKeyPressModificador" v-model="autor" id="idAutor" type="text">
+        <br>
+        <br>
+        <button v-on:click="agregarFrase">Agregar al Inicio</button>
+       
+        <button v-on:click="agregarFraseFinal">Agregar al Final</button>
+        <hr>
         <ul>
-            <!--DESESTROCTURO MI OBJETO-->
-            <li v-for=" {frase,autor} in  listaFrases">{{frase}} - {{autor}}
-
-                <button>{{autor}}</button>
-                <p>{{frase}}</p>
-
+            <li v-for="mifrase in listasFrases">{{mifrase.frase}} &emsp; {{ mifrase.autor}}
+                &emsp; <button>{{mifrase.autor}}</button>
+                <p>{{mifrase.frase}}</p>
             </li>
         </ul>
+        <hr>
+        <ul>
+         
+ 
+            <li v-for="{frase,autor} in listasFrases">{{frase}} &emsp; {{ autor}}
+                &emsp; <button v-if="autor!==null">{{autor}}</button>
+                <p v-show="autor!==null">AUTOR: {{autor}}</p>
+           <!-- V-IF no Contruye el elemento
+                V-SHOW oculta el elemento HTML pero SI esta construido
+           -->
+            </li>
+        </ul>
+        <hr>
+       
     </div>
-    
+ 
+ 
     <script src="../js/appfrases.js"></script>
+ 
 </body>
+ 
 </html>
