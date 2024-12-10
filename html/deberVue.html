@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deber de Formulario Simple Sin Estilos</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <header>
+        <h1>DEBER VUE</h1>
+    </header>
+    <nav>
+        <p>Ingrese sus datos.</p>
+    </nav>
+    <section>
+        <div id="myapp">
+            <label for="id_nombre">Nombre:</label>
+            <input type="text" id="id_nombre" v-model="nombre">
+
+            <label for="id_apellido">Apellido:</label>
+            <input type="text" id="id_apellido" v-model="apellido">
+
+            <label for="id_hobby">Hobby:</label>
+            <input type="text" id="id_hobby" v-model="hobby">
+
+            <label for="id_lugar_nacimiento">Lugar de Nacimiento:</label>
+            <input type="text" id="id_lugar_nacimiento" v-model="lugarNacimiento">
+            
+            <p v-if="mensaje" style="color: red;">{{ mensaje }}</p>
+
+            <button v-on:click="guardarEntrada">Guardar</button>
+
+            <div>
+                <h3>Datos Personales Almacenados:</h3>
+                <ul>
+                    <li v-for="lista in listadoEntrada">
+                        {{ lista }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <footer>
+      
+    </footer>
+    <script src="../js/deberVue.js"></script>
+</body>
+</html>
